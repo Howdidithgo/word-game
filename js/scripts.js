@@ -1,18 +1,18 @@
-
-var sentence;
-
+var codedSentence = "";
+var removeVowels = function(string1, string2){
+  for (var i = 0; i < string1.length; i++) {
+    if (string1[i]=== "a" || string1[i]=== "e" || string1[i]=== "i" || string1[i]=== "o" || string1[i]=== "u") {
+      string2 += "-";
+    }else {
+      string2 += string1[i];
+    }
+  }
+}
 $(function() {
   $("#form1").submit(function(event) {
     event.preventDefault();
-    sentence = $("#sentence").val();
-    var codedSentence = "";
-    for (var i = 0; i < sentence.length; i++) {
-      if (sentence[i]=== "a" || sentence[i]=== "e" || sentence[i]=== "i" || sentence[i]=== "o" || sentence[i]=== "u") {
-        codedSentence += "-";
-      }else {
-        codedSentence += sentence[i];
-      }
-    }
+    var sentence = $("#sentence").val();
+    removeVowels(sentence,codedSentence);
     console.log(codedSentence);
     $(".guess").show();
     $("#form1").hide();
